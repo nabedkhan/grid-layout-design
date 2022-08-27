@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f2f2f2;
+}
+
+header,
+footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+header > h2 {
+  text-transform: uppercase;
+  color: cadetblue;
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+}
+
+main {
+  margin: 2rem 0;
+}
+
+/* ================= images style ================= */
+figure {
+  position: relative;
+  overflow: hidden;
+}
+
+figure:hover {
+  cursor: pointer;
+}
+
+figure:hover::before {
+  opacity: 0.8;
+  z-index: 1;
+}
+
+figure:hover img {
+  transform: scale(1.2);
+}
+
+figure:hover .social-icons > i {
+  transform: rotate(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+figure::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+figure > figcaption {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #f2f2f2;
+}
+
+.social-icons {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  color: #f2f2f2;
+  inset: 0;
+}
+
+.social-icons > i {
+  background-color: #f2f2f2;
+  color: black;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  transform: rotate(-90deg) scale(1.5);
+  transition: all 300ms;
+  opacity: 0;
+}
+
+.social-icons > .fa-facebook-f {
+  transition-delay: 50ms;
+}
+
+.social-icons > .fa-twitter {
+  transition-delay: 100ms;
+}
+
+.social-icons > .fa-linkedin-in {
+  transition-delay: 150ms;
+}
+
+/* ================= grid ================= */
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  /* grid-auto-rows: 277px; */
+}
+
+.grid-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 400ms;
+}
+.protrait {
+  grid-row: auto / span 2;
+}
+
+@media (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
